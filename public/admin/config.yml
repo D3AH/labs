@@ -1,0 +1,57 @@
+publish_mode: editorial_workflow
+media_folder: "images/uploads"
+
+backend:
+  name: git-gateway
+  branch: master
+
+collections: # A list of collections the CMS should be able to edit
+  - name: "institutions"
+    label: "Institución"
+    folder: "public/content/institutions"
+    create: true
+    extension: "json"
+    fields:
+      - { label: "Nombre", name: "nombre", widget: "string" }
+      - { label: "Sector", name: "sector", widget: "string" }
+      - { label: "Descripcion", name: "descripcion", widget: "text" }
+      - { label: "Mision", name: "mision", widget: "text" }
+      - { label: "Vision", name: "vision", widget: "text" }
+      - { label: "Correo", name: "correo", widget: "string" }
+      - { label: "Telefono", name: "telefono", widget: "number" }
+      - { label: "Facebook", name: "fb", widget: "string" }
+      - { label: "Twitter", name: "tw", widget: "string" }
+      - { label: "Foto", name: "fotoURL", widget: "string" }
+  - name: "candidates" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Candidato" # Used in the UI, ie.: "New Post"
+    folder: "public/content/candidates" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    extension: "json"
+    fields: # The fields each document in this collection have
+      - { label: "Nombre", name: "nombre", widget: "string" }
+      - { label: "Sexo", name: "sexo", widget: "string" }
+      - { label: "Puesto", name: "puesto", widget: "string" }
+      - { label: "Dependencia", name: "dependencia", widget: "string" }
+      - { label: "Departamento", name: "departamento", widget: "string" }
+      - { label: "Institución", name: "institution", widget: "relation", collections: "institutions", searchFields: ["nombre", "sector"], valueField: "nombre" }
+      - { label: "Elección", name: "election", widget: "relation", collections: "elections", searchFields: ["nombre", "institution"], valueField: "nombre" }
+      - { label: "Comisión", name: "comission", widget: "relation", collections: "elections", searchFields: ["nombre", "institution"], valueField: "nombre" }
+      - { label: "Fecha laboral", name: "fechalaboral", widget: "datetime" }
+      - { label: "No colegiado", name: "nocolegiado", widget: "number" }
+      - { label: "Estadocivil", name: "estadocivil", widget: "string" }
+      - { label: "Profesion", name: "profesion", widget: "string" }
+      - { label: "Anos de experiencia", name: "anosexperiencia", widget: "string" }
+      - { label: "Experiencia profesional", name: "experienciaProfesional", widget: "string" }
+      - { label: "Experiencia academica", name: "experienciaAcademica", widget: "string" }
+      - { label: "Publicaciones", name: "publicaciones", widget: "string" }
+      - { label: "Foto", name: "fotoURL", widget: "image", required: false }
+  - name: "elections"
+    label: "Elección"
+    folder: "public/content/elections"
+    create: true
+    extension: "json"
+    fields:
+      - { label: "Nombre", name: "nombre", widget: "string" }
+      - { label: "Institution", name: "institution", widget: "relation", collections: "institutions", searchFields: ["nombre", "sector"], valueField: "nombre" }
+      - { label: "Fecha eleccion", name: "fechaEleccion", widget: "datetime" }
+      - { label: "Descripción del cargo", name: "cargo", widget: "text" }
