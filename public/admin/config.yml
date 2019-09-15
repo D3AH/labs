@@ -55,6 +55,6 @@ collections: # A list of collections the CMS should be able to edit
     extension: "json"
     fields:
       - { label: "Nombre", name: "nombre", widget: "string" }
-      - { label: "Institution", name: "institution", widget: "relation", collections: "institutions", searchFields: ["nombre", "sector"], valueField: "nombre" }
+      - { label: "Institution", name: "institution", widget: "relation", collections: "institutions", searchFields: ["nombre", "sector"], valueField: "nombre", required: false }
       - { label: "Fecha eleccion", name: "fechaEleccion", widget: "datetime" }
       - { label: "Descripción del cargo", name: "cargo", widget: "text" }
