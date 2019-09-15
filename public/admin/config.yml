@@ -10,6 +10,7 @@ collections: # A list of collections the CMS should be able to edit
     label: "Institución"
     folder: "public/content/institutions"
     create: true
+    identifier_field: "nombre"
     extension: "json"
     fields:
       - { label: "Nombre", name: "nombre", widget: "string" }
@@ -26,6 +27,7 @@ collections: # A list of collections the CMS should be able to edit
     label: "Candidato" # Used in the UI, ie.: "New Post"
     folder: "public/content/candidates" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
+    identifier_field: "nombre"
     extension: "json"
     fields: # The fields each document in this collection have
       - { label: "Nombre", name: "nombre", widget: "string" }
@@ -49,6 +51,7 @@ collections: # A list of collections the CMS should be able to edit
     label: "Elección"
     folder: "public/content/elections"
     create: true
+    identifier_field: "nombre"
     extension: "json"
     fields:
       - { label: "Nombre", name: "nombre", widget: "string" }
