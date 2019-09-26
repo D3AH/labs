@@ -1,0 +1,5 @@
+<BsForm @model={{login}} @onSubmit={{action "submit"}} as |form|>
+  <form.element @controlType="email" @label="Email" @placeholder="Email" @property="email" />
+  <form.element @controlType="password" @label="Password" @placeholder="Password" @property="password" />
+  <BsButton @defaultText="Submit" @type="primary" @buttonType="submit" />
+</BsForm>
