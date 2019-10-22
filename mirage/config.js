@@ -1,3 +1,18 @@
+function filterable(resourceName, attrs) {
+  return (schema, request) => {
+    let filters = attrs.reduce((hash, attr) => {
+      let val = request.queryParams[attr];
+      if (val) {
+        hash[attr] = val;
+      }
+
+      return hash;
+    }, {});
+
+    return schema[resourceName].where(filters);
+  }
+}
+
 export default function() {
 
   // These comments are here to help you get started. Feel free to delete them.
@@ -23,7 +38,7 @@ export default function() {
 
     https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
   */
- this.resource('events');
- this.resource('sessions');
- this.resource('presenters');
+ this.resource('rentals');
+
+ this.get('rentals', filterable('rentals', ['title']));
 }

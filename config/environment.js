@@ -28,6 +28,12 @@ module.exports = function(environment) {
     enabled: true
   };
 
+  // Uninstalled for now
+  // ENV['fastboot'] = {
+  //   disabled: true,
+  //   hostWhitelist: ['example.com', 'subdomain.example.com', /^localhost:\d+$/]
+  // };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

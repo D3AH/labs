@@ -1,3 +1,3 @@
-import RESTSerializer from '@ember-data/serializer/rest';
+import JSONAPISerializer from '@ember-data/serializer/json-api';
 
-export default RESTSerializer.extend({});
+export default JSONAPISerializer.extend({});

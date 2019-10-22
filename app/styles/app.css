@@ -1,0 +1,24 @@
+@tailwind base;
+
+@tailwind components;
+
+.ember-power-select-trigger {
+  border: unset;
+  @apply m-2 p-2 w-full rounded bg-gray-100 font-bold;
+}
+
+.ember-basic-dropdown-content {
+  border: unset;
+  @apply shadow;
+}
+
+.ember-power-select-search-input {
+  @apply rounded bg-gray-100 border-0 font-bold;
+}
+
+/* @TODO Customize  */
+*:focus {
+  outline: none;
+}
+
+@tailwind utilities;

@@ -1,10 +1,33 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const { join } = require('path');
+const tailwindcss = require('tailwindcss');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    // Add options here
+    postcssOptions: {
+      compile: {
+        enabled: true,
+        plugins: [
+          tailwindcss('app/styles/tailwind.js')
+        ]
+      },
+      filter: {
+        // enabled: false,
+        plugins: [
+          require('@fullhuman/postcss-purgecss')({
+            content: [
+              join(__dirname, 'app', '**', '*.html'),
+              join(__dirname, 'app', '**', '*.hbs'),
+              join(__dirname, 'app', '**', '*.js'),
+            ],
+            defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+          })
+        ]
+      }
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated
@@ -21,4 +44,12 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
 
   return app.toTree();
+  // const { Webpack } = require('@embroider/webpack');
+  // return require('@embroider/compat').compatBuild(app, Webpack, {
+  //   packagerOptions: {
+  //     webpackConfig: {
+  //       // plugins: [new BundleAnalyzerPlugin()]
+  //     }
+  //   }
+  // });
 };
