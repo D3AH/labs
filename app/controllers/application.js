@@ -1,7 +1,5 @@
 import Controller from '@ember/controller';
-import fade from 'ember-animated/transitions/fade';
 import { fadeOut, fadeIn } from 'ember-animated/motions/opacity';
-import scale from 'ember-animated/motions/scale';
 import { action } from '@ember/object';
 
 export default Controller.extend({

@@ -11,14 +11,14 @@
     {{#animated-beacon name="source"}}
       <SearchBox class="w-1/2 mx-auto" @onResult={{action this.onResult}} @query={{this.search}}/>
     {{/animated-beacon}}
-    <button {{action this.makeTransition}}>
+    {{!-- <button {{action this.makeTransition}}>
       Toggle
-    </button>
+    </button> --}}
   </div>
   {{!-- List Rentals --}}
-  <AnimatedContainer class="bg-teal-100 w-full h-screen">
+  <AnimatedContainer class="w-full h-screen">
     <div class="w-full flex flex-wrap px-6 py-4">
-      {{#animated-if this.showFade use=this.transition}}
+      {{!-- {{#animated-if this.showFade use=this.transition}} --}}
         {{#each this.rentals as |rental|}}
           <div class="w-1/3 p-4 relative" {{on "load" this.dismiss}}>
             <img
@@ -40,8 +40,8 @@
             </article>
           </div>
         {{/each}}
-        <br {{on-viewport action=this.dismiss}}>
-      {{/animated-if}}
+        {{!-- <br {{on-viewport action=this.dismiss}}> --}}
+      {{!-- {{/animated-if}} --}}
     </div>
   </AnimatedContainer>
 </main>
