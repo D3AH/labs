@@ -14,14 +14,14 @@
       </div>
     </div>
     {{!-- List Rentals --}}
-    <AnimatedContainer class="w-full h-screen">
+    <div class="w-full h-screen">
       <div class="w-full flex flex-wrap px-6 py-4">
           {{#each this.rentals as |rental|}}
             <div class="w-1/3 p-4 relative">
-              <img
+              <SafeImage
                 class="rounded"
                 src={{rental.img}}
-                alt={{rental.title}}>
+                alt={{rental.title}} />
               <article class="bg-white rounded shadow-md absolute bottom-0 w-11/12 inset-x-auto ml-10 text-left py-2 px-4">
                 <div class="flex">
                   <div class="flex-1">
@@ -34,10 +34,16 @@
                     <h2 class="font-regular text-gray-500">{{rental.bathrooms}} bathrooms</h2>
                   </div>
                 </div>
+                <LinkTo
+                  class="mx-auto bg-purple-600 hover:bg-purple-800 text-white rounded-full px-4 py-2 float-right my-1"
+                  @route="rentals.rental"
+                  @model={{rental.id}}>
+                  Ver más
+                </LinkTo>
               </article>
             </div>
           {{/each}}
       </div>
-    </AnimatedContainer>
+    </div>
   </main>
 </div>

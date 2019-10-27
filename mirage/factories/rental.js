@@ -30,6 +30,6 @@ export default Factory.extend({
   },
 
   img($i) {
-    return `img/rentals/rental-${$i % 5}.jpg`;
+    return `img/rentals/rental-${$i % 6}.jpg`;
   }
 });
